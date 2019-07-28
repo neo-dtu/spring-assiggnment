@@ -71,7 +71,7 @@ public class StageDAOImpl implements StageDAO {
 			stageDTOs.add(stage);
 		}
 		return stageDTOs;
-	}
+	} 
 
 	private StageEntity frameEntityFromDTO(StageDTO stageDTO) {
 		StageEntity stageEntity = new StageEntity();
