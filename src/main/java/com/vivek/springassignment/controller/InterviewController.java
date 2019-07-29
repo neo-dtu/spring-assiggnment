@@ -21,8 +21,18 @@ public class InterviewController {
 	private InterviewService interviewService;
 	
 	@RequestMapping(value = "/addNewInterview", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
-	public ResponseEntity<List<?>> addNewStage(@RequestBody InterviewEntity interviewDto) {
+	public ResponseEntity<List<?>> addNewInterview(@RequestBody InterviewEntity interviewDto) {
 		return new ResponseEntity<List<?>>(interviewService.saveInterview(interviewDto), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/editInterview", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
+	public ResponseEntity<List<?>> editInterview(@RequestBody InterviewEntity interviewDto) {
+		return new ResponseEntity<List<?>>(interviewService.editInterview(interviewDto), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/removeInterview", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
+	public ResponseEntity<List<?>> removeInterview(@RequestBody InterviewEntity interviewDto) {
+		return new ResponseEntity<List<?>>(interviewService.deleteInterview(interviewDto), HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/interview", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
