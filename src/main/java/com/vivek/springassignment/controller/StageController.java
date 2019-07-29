@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.vivek.springassignment.dto.StageDTO;
+import com.vivek.springassignment.model.StageEntity;
 import com.vivek.springassignment.service.StageService;
 
 @RestController
@@ -26,13 +27,13 @@ public class StageController {
 	}
 
 	@RequestMapping(value = "/addNewStage", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
-	public ResponseEntity<List<?>> addNewStage(@RequestBody StageDTO stageDTO) {
-		return new ResponseEntity<List<?>>(stageServiceObj.addNewStage(stageDTO), HttpStatus.OK);
+	public ResponseEntity<List<?>> addNewStage(@RequestBody StageEntity stageEntity) {
+		return new ResponseEntity<List<?>>(stageServiceObj.addNewStage(stageEntity), HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/editStage", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
-	public ResponseEntity<List<?>> editStage(@RequestBody StageDTO stageDTO) {
-		stageServiceObj.editStage(stageDTO);
+	public ResponseEntity<List<?>> editStage(@RequestBody StageEntity stageEntity) {
+		stageServiceObj.editStage(stageEntity);
 		return new ResponseEntity<List<?>>(stageServiceObj.fetchAllStagesData(), HttpStatus.OK);
 	}
 }

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.vivek.springassignment.dao.StageDAO;
-import com.vivek.springassignment.dto.StageDTO;
+import com.vivek.springassignment.model.StageEntity;
 import com.vivek.springassignment.service.StageService;
 
 @Service
@@ -23,7 +23,7 @@ public class StageServiceImpl implements StageService {
 	}
 
 	@Override
-	public List<?> addNewStage(StageDTO stageDTO) {
+	public List<?> addNewStage(StageEntity stageDTO) {
 		return stageDAO.addNewStage(stageDTO);
 	}
 
@@ -33,7 +33,7 @@ public class StageServiceImpl implements StageService {
 	}
 
 	@Override
-	public List<?> editStage(StageDTO stageDTO) {
+	public List<?> editStage(StageEntity stageDTO) {
 		return stageDAO.editStage(stageDTO);
 	}
 }

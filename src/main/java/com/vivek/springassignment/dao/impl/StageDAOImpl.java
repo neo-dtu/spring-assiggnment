@@ -26,16 +26,11 @@ public class StageDAOImpl implements StageDAO {
 	}
 
 	@Override
-	public List<StageDTO> addNewStage(StageDTO stageDTO) {
-		StageEntity stageEntity = frameEntityFromDTO(stageDTO);
-		entityManager.persist(stageEntity);
+	public List<StageEntity> addNewStage(StageEntity stageDTO) {
+	//	StageEntity stageEntity = frameEntityFromDTO(stageDTO);
+		entityManager.persist(stageDTO);
 		List<StageEntity> stageEntities = entityManager.createQuery("from StageEntity", StageEntity.class).getResultList();
-		List<StageDTO> stageDTOs = new ArrayList<StageDTO>();
-		for (StageEntity obj : stageEntities) {
-			StageDTO stage = frameDTOfromEntity(obj);
-			stageDTOs.add(stage);
-		}
-		return stageDTOs;
+		return stageEntities;
 	}
 
 	@Override
@@ -61,16 +56,11 @@ public class StageDAOImpl implements StageDAO {
 	}
 
 	@Override
-	public List<StageDTO> editStage(StageDTO stageDTO) {
-		StageEntity stageEntity = frameEntityFromDTO(stageDTO);
-		entityManager.merge(stageEntity);
+	public List<StageEntity> editStage(StageEntity stageDTO) {
+	//	StageEntity stageEntity = frameEntityFromDTO(stageDTO);
+		entityManager.merge(stageDTO);
 		List<StageEntity> stageEntities = entityManager.createQuery("from StageEntity", StageEntity.class).getResultList();
-		List<StageDTO> stageDTOs = new ArrayList<StageDTO>();
-		for (StageEntity obj : stageEntities) {
-			StageDTO stage = frameDTOfromEntity(obj);
-			stageDTOs.add(stage);
-		}
-		return stageDTOs;
+		return stageEntities;
 	} 
 
 	private StageEntity frameEntityFromDTO(StageDTO stageDTO) {

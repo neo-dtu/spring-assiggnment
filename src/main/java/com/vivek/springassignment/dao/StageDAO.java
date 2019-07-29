@@ -2,16 +2,16 @@ package com.vivek.springassignment.dao;
 
 import java.util.List;
 
-import com.vivek.springassignment.dto.StageDTO;
+import com.vivek.springassignment.model.StageEntity;
 
 public interface StageDAO {
 
 	List<?> test();
 
-	List<?> addNewStage(StageDTO stageDTO);
+	List<?> addNewStage(StageEntity stageDTO);
 
 	List<?> fetchAllStagesData();
 
-	List<?> editStage(StageDTO stageDTO);
+	List<?> editStage(StageEntity stageDTO);
 
 }

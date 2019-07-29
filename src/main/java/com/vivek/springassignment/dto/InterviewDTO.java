@@ -19,7 +19,7 @@ public class InterviewDTO implements Serializable {
 		this.interviewName = interviewName;
 	}
 
-	public Long getStageId() {
+	public Long InterviewEntity() {
 		return stageId;
 	}
 
