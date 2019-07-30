@@ -1,6 +1,7 @@
 package com.vivek.springassignment.model;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -12,6 +13,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
 @Table(name = "stage")
@@ -23,8 +28,9 @@ public class StageEntity implements Serializable {
 	private String stageName;
 	private Long stageOrder;
 	private List<InterviewEntity> interviewList;
-	private Date createdDate;
-	private Date modifiedDate;
+	private LocalDateTime createdDate;
+	private LocalDateTime modifiedDate;
+	private String errorMessage;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -68,21 +74,32 @@ public class StageEntity implements Serializable {
 	}
 
 	@Column(name = "created_date")
-	public Date getCreatedDate() {
+	@CreationTimestamp
+	public LocalDateTime getCreatedDate() {
 		return createdDate;
 	}
 
-	public void setCreatedDate(Date createdDate) {
+	public void setCreatedDate(LocalDateTime createdDate) {
 		this.createdDate = createdDate;
 	}
 
 	@Column(name = "modified_date")
-	public Date getModifiedDate() {
+	@UpdateTimestamp
+	public LocalDateTime getModifiedDate() {
 		return modifiedDate;
 	}
 
-	public void setModifiedDate(Date modifiedDate) {
+	public void setModifiedDate(LocalDateTime modifiedDate) {
 		this.modifiedDate = modifiedDate;
+	}
+
+	@Transient
+	public String getErrorMessage() {
+		return errorMessage;
+	}
+
+	public void setErrorMessage(String errorMessage) {
+		this.errorMessage = errorMessage;
 	}
 
 }

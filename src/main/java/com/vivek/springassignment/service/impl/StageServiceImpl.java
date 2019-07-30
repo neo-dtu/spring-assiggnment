@@ -23,7 +23,8 @@ public class StageServiceImpl implements StageService {
 	}
 
 	@Override
-	public List<?> addNewStage(StageEntity stageDTO) {
+	public StageEntity addNewStage(StageEntity stageDTO) {
+		
 		return stageDAO.addNewStage(stageDTO);
 	}
 
@@ -33,7 +34,7 @@ public class StageServiceImpl implements StageService {
 	}
 
 	@Override
-	public List<?> editStage(StageEntity stageDTO) {
+	public StageEntity editStage(StageEntity stageDTO) {
 		return stageDAO.editStage(stageDTO);
 	}
 }

@@ -1,5 +1,6 @@
 package com.vivek.springassignment.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,13 @@ public class StageController {
 
 	@RequestMapping(value = "/addNewStage", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
 	public ResponseEntity<List<?>> addNewStage(@RequestBody StageEntity stageEntity) {
-		return new ResponseEntity<List<?>>(stageServiceObj.addNewStage(stageEntity), HttpStatus.OK);
+		StageEntity obj = stageServiceObj.addNewStage(stageEntity);
+		if(obj.getErrorMessage()!=null && !obj.getErrorMessage().isEmpty()){
+			List<StageEntity> list = new ArrayList<>();
+			list.add(obj);
+			return new ResponseEntity<List<?>>(list, HttpStatus.OK);
+		}
+			return new ResponseEntity<List<?>>(stageServiceObj.fetchAllStagesData(), HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/editStage", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")

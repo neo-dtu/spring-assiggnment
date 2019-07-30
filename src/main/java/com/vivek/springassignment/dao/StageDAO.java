@@ -8,10 +8,10 @@ public interface StageDAO {
 
 	List<?> test();
 
-	List<?> addNewStage(StageEntity stageDTO);
+	StageEntity addNewStage(StageEntity stageDTO);
 
 	List<?> fetchAllStagesData();
 
-	List<?> editStage(StageEntity stageDTO);
+	StageEntity editStage(StageEntity stageDTO);
 
 }

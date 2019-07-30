@@ -9,10 +9,10 @@ public interface StageService {
 
 	List<?> test();
 
-	List<?> addNewStage(StageEntity stageEntity);
+	StageEntity addNewStage(StageEntity stageEntity);
 
 	List<?> fetchAllStagesData();
 
-	List<?> editStage(StageEntity stageEntity);
+	StageEntity editStage(StageEntity stageEntity);
 
 }
